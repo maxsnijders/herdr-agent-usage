@@ -482,10 +482,11 @@ usagebar collect --all --quotas-only
 ```
 
 This retains subscription quota windows and run-out estimates, but skips pane
-activity, API spend, and cache diagnostics. With `--all`, it does not query Herdr
-or compute transcript activity for panes. Without `--all`, it still queries Herdr to select active
-subscription providers. Plain `collect` and the interactive panel retain the full
-activity data.
+activity, API spend, and cache diagnostics. With `--all`, it does not list
+Herdr panes or compute transcript activity for panes. If `HERDR_PANE_ID` is set,
+it may still query that pane to resolve the working directory. Without `--all`,
+it lists Herdr panes to select active subscription providers. Plain `collect`
+and the interactive panel retain the full activity data.
 
 ## Data handling
 

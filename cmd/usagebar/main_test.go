@@ -4,13 +4,12 @@ package main
 import (
 	"encoding/json"
 	"io"
-	"time"
-
-	"github.com/senna-lang/herdr-agent-usage/internal/limits"
 	"os"
 	"path/filepath"
 	"testing"
+	"time"
 
+	"github.com/senna-lang/herdr-agent-usage/internal/limits"
 	"github.com/senna-lang/herdr-agent-usage/internal/providers/claude"
 	"github.com/senna-lang/herdr-agent-usage/internal/ratelimit"
 	"github.com/senna-lang/herdr-agent-usage/internal/setup"
@@ -121,6 +120,8 @@ func TestCollectQuotasOnly(t *testing.T) {
 			t.Setenv("CODEX_HOME", filepath.Join(home, ".codex"))
 			t.Setenv("GROK_HOME", filepath.Join(home, ".grok"))
 			t.Setenv("HERDR_PLUGIN_CONFIG_DIR", t.TempDir())
+			t.Setenv("HERDR_PANE_ID", "")
+			t.Setenv("HERDR_PLUGIN_CONTEXT_JSON", "")
 			t.Setenv("USAGEBAR_HISTORY_PATH", filepath.Join(home, "history.json"))
 			marker := filepath.Join(home, "herdr-called")
 			t.Setenv("USAGEBAR_TEST_HERDR_LOG", marker)
